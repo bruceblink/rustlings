@@ -1,3 +1,82 @@
 Cargo.lock
-target/
+### 操作系统生成文件 ###
+.DS_Store           # macOS 文件夹属性文件
+Thumbs.db           # Windows 缩略图缓存
+desktop.ini         # Windows 文件夹配置
+*.lnk               # Windows 快捷方式
+
+### 编辑器/IDE ###
+# VS Code
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-*
+
+### 编译产物 ###
+*.class             # Java
+*.exe               # Windows 可执行
+*.dll               # 动态链接库
+*.so                # Linux 共享对象
+*.o                 # 对象文件
+*.a                 # 静态库
+*.pyc               # Python 字节码
+__pycache__/        # Python 缓存目录
+/target/            # Rust/Cargo 编译目录
+/dist/              # 通用打包目录
+/build/             # 通用构建目录
+/bin/               # 二进制输出目录
+/out/               # 编译输出目录
+target/
+
+### 包管理依赖 ###
+node_modules/       # Node.js
+vendor/             # Composer (PHP)
+.venv/              # Python 虚拟环境
+venv/               # Python 虚拟环境
+env/                # 虚拟环境
+.pnpm-store/        # pnpm 存储
+
+### 日志文件 ###
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### 配置文件 ###
+.env                # 环境变量（含敏感信息）
+*.local             # 本地配置文件
+config_*.yml        # 动态配置文件
+secrets/            # 敏感信息目录
+
+### 测试相关 ###
+coverage/           # 测试覆盖率报告
+.junit.xml          # JUnit 测试报告
+/test-results/      # 测试结果目录
+
+### 其他 ###
+*.zip               # 压缩包
+*.tar.gz
+*.rar
+.cache/             # 缓存目录
+.parcel-cache/      # Parcel 缓存
+.next/              # Next.js 构建
+.serverless/        # Serverless 框架
+dump.rdb            # Redis 快照
+*.sqlite3           # SQLite 数据库
+*.sqlite3-*         # SQLite 临时文件
