@@ -6,8 +6,9 @@ mod macros {
             println!("Check out my macro!");
         };
     }
+    pub(crate) use my_macro; // 👈 关键：将宏导出到父模块
 }
 
 fn main() {
-    my_macro!();
+    macros::my_macro!();
 }
