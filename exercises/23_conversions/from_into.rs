@@ -3,6 +3,9 @@
 // You can read more about it in the documentation:
 // https://doc.rust-lang.org/std/convert/trait.From.html
 
+use std::u8;
+
+
 #[derive(Debug)]
 struct Person {
     name: String,
@@ -34,7 +37,31 @@ impl Default for Person {
 // 5. Parse the second element from the split operation into a `u8` as the age.
 // 6. If parsing the age fails, return the default of `Person`.
 impl From<&str> for Person {
-    fn from(s: &str) -> Self {}
+    fn from(s: &str) -> Self {
+        let default = Person::default();
+
+        // 1. 按逗号拆分，必须恰好两段
+        let parts: Vec<&str> = s.split(',').collect();
+        if parts.len() != 2 {
+            return default;
+        }
+
+        // 2. 名字不能为空
+        let name = parts[0].trim();
+        if name.is_empty() {
+            return default;
+        }
+
+        // 3. 年龄必须能成功解析，否则整体回退
+        let age_str = parts[1].trim();
+        match age_str.parse::<u8>() {
+            Ok(age) => Person {
+                name: name.to_string(),
+                age,
+            },
+            Err(_) => default,
+        }
+    }
 }
 
 fn main() {
